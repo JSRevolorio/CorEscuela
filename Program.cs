@@ -15,6 +15,8 @@ namespace CorEscuela
             EscuelaEngine engine = new EscuelaEngine();
             engine.Inicializar();
             ImpimirCursosEscuela(engine.Escuela);
+
+            var listaObjetoEscuala = engine.GetObjetoEscuelaBases();
             
         }
 
