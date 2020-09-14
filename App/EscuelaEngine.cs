@@ -256,21 +256,21 @@ namespace CorEscuela.App
         #region Metodos de carga
         private void CargarEvaluaciones()
         {
+            //var rnd = new Random(System.Environment.TickCount);
+            var rnd = new Random();
             foreach (Curso curso in Escuela.Cursos)
             {
                 foreach (Asignatura asignatura in curso.Asignaturas)
                 {
                     foreach (Alumno alumno in curso.Alumnos)
                     {
-                        var rnd = new Random(System.Environment.TickCount);
-
                         for (int i = 0; i < 5; i++)
                         {
                             var evaluacion = new Evaluacion()
                             {
                                 Asignatura = asignatura,
                                 Nombre     = $"{asignatura.Nombre} Ev#{i+1}",
-                                Nota       = (float)(5*rnd.NextDouble()),
+                                Nota       = MathF.Round((float)(5*rnd.NextDouble()),2),
                                 Alumno = alumno
                             };
                             alumno.Evaluaciones.Add(evaluacion);  
