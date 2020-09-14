@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using CorEscuela.App;
 using CorEscuela.Util;
 using CorEscuela.Entidades;
-using static System.Console;
 
 namespace CorEscuela
 {
@@ -15,8 +14,12 @@ namespace CorEscuela
             EscuelaEngine engine = new EscuelaEngine();
             engine.Inicializar();
             ImpimirCursosEscuela(engine.Escuela);
-
+            
             var listaObjetoEscuala = engine.GetObjetoEscuelaBases();
+            engine.Escuela.LimpiarLugar();
+
+            var dictmp = engine.GetDiccionarioObjetos();
+            engine.ImprimirDiccionario(dictmp, true);
             
         }
 
@@ -27,7 +30,7 @@ namespace CorEscuela
             {
                 foreach (var curso in escuela.Cursos)
                 {
-                    WriteLine($"Nombre {curso.Nombre  }, Id  {curso.UniqueId}");
+                    Console.WriteLine($"Nombre {curso.Nombre  }, Id  {curso.UniqueId}");
                 }
             }
         }
